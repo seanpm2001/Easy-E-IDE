@@ -1,0 +1,35 @@
+on:
+  push:
+    tags-ignore:
+      - '*.*'
+  pull_request:
+    types: [opened, reopened, closed]
+
+jobs:
+  # Generate and publish EiffelSourceChangeCreatedEvent for PRs opened or reopened
+  send_escc:
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'reopened')
+    runs-on: ubuntu-20.04
+    name: Generate and publish EiffelSourceChangeCreatedEvent
+    steps:
+      - name: Generate and publish EiffelSourceChangeCreatedEvent
+        id: publish-event
+        uses: fdegir/ega@v24
+        env:
+          eiffel_mp: 'eiffelsemantics'
+          eiffel_message_type: 'EiffelSourceChangeCreatedEvent'
+        with:
+          remrem_publish_service_url: 'http://89.46.83.162:8080/generateAndPublish'
+  send_escs:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-20.04
+    name: Generate and publish EiffelSourceChangeSubmittedEvent
+    steps:
+      - name: Generate and publish EiffelSourceChangeSubmittedEvent
+        id: publish-event
+        uses: fdegir/ega@v24
+        env:
+          eiffel_mp: 'eiffelsemantics'
+          eiffel_message_type: 'EiffelSourceChangeSubmittedEvent'
+        with:
+          remrem_publish_service_url: 'http://89.46.83.162:8080/generateAndPublish'
