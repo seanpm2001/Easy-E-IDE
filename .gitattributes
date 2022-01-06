@@ -106,6 +106,10 @@
 *.gitignore linguist-documentation=false
 *.editorconfig linguist-detectable=false
 *.editorconfig linguist-documentation=false
+# Eiffel & E
+# GitHub isn't showing the language right now, so I apparently have to force push it with a .gitattributes addition
+*.e linguist-detectable=true
+*.e linguist-documentation=false
 # Plain Text document
 # Do not include, as it would become the 100% dominant language and would hide all the other languages as "other"
 *.txt linguist-detectable=false
@@ -113,6 +117,6 @@
 # End of linguist script
 # File info
 # File type: gitattributes file (.gitattributes)
-# File version: 3 (Monday, 2021 November 29th at 3:14 pm)
-# Line count (including blank lines and compiler line): 119
+# File version: 3 (2022, Wednesday, January 5th at 10:32 pm)
+# Line count (including blank lines and compiler line): 123
 # End of script
