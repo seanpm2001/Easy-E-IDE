@@ -1,1 +1,1 @@
- The new approach to Git repo templates, an ultimate template culminated in less than 2 weeks that combines all template categories into one. A very powerful Git template. 
+Easy E is an easy to use IDE for the E and Eiffel programming languages. It is named after the former rapper Eazy-E, although this was done for pun reasons only.
